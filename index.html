@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yuki Ip — Interview &amp; Production-Pipeline Reel</title>
+  <meta name="description"
+    content="One format, applied consistently across a series — interview TV, AI-agent pipelines, and documentary profiles. Broadcast background on CNA.">
+  <style>
+    /* ============================================================
+     REEL TEMPLATE — worked example (this copy is the lecture reel).
+
+     Keep this whole <style> block VERBATIM in every reel — the warm-paper
+     editorial design is the house style and should not drift between jobs.
+     Rewrite only the BODY content: <title>/meta, masthead headline + lede,
+     the gap-note, the index nav, and one <section class="work"> per video.
+
+     Each video section is framed for ONE buyer-relevant point. Below, the
+     framing register is lecture/interview craft; for a different job, change
+     the register (e.g. short-form hooks, brand-film polish) but keep the
+     same HTML structure and the ".demo" callout naming the relevant decision.
+     ============================================================ */
+
+    :root {
+      --paper: #f4f1ea;
+      --paper-2: #ebe6db;
+      --ink: #1c1a17;
+      --ink-soft: #4a463f;
+      --ink-faint: #8a8478;
+      --line: #d8d2c4;
+      --line-strong: #bcb4a2;
+
+      --accent: #7c3a2f;
+      --craft: #9a6a1d;
+
+      --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+      --sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      --mono: "SF Mono", ui-monospace, "JetBrains Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+
+      --maxw: 920px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--serif);
+      font-size: 18px;
+      line-height: 1.6;
+      background-image:
+        radial-gradient(circle at 20% 0%, rgba(0, 0, 0, 0.015), transparent 60%),
+        radial-gradient(circle at 90% 100%, rgba(0, 0, 0, 0.02), transparent 55%);
+    }
+
+    .wrap {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    ::selection {
+      background: rgba(124, 58, 47, 0.20);
+    }
+
+    /* ---------- masthead ---------- */
+    header.masthead {
+      padding: 64px 0 30px;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    .kicker {
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin: 0 0 22px;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .kicker .dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: inline-block;
+    }
+
+    h1.title {
+      font-size: clamp(34px, 6vw, 56px);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin: 0 0 18px;
+      font-weight: 600;
+    }
+
+    h1.title em {
+      font-style: italic;
+      color: var(--ink-soft);
+    }
+
+    .lede {
+      font-size: clamp(18px, 2.4vw, 22px);
+      max-width: 64ch;
+      color: var(--ink-soft);
+      margin: 0 0 6px;
+    }
+
+    /* ---------- the note ---------- */
+    .gap-note {
+      margin: 40px 0 8px;
+      border-left: 3px solid var(--accent);
+      background: rgba(124, 58, 47, 0.055);
+      padding: 20px 24px;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .gap-note .gn-tag {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 0 0 8px;
+      font-weight: 600;
+    }
+
+    .gap-note p {
+      margin: 0;
+      font-size: 17px;
+      color: var(--ink-soft);
+    }
+
+    .gap-note strong {
+      color: var(--ink);
+    }
+
+    /* ---------- index nav ---------- */
+    .index {
+      margin: 44px 0 4px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border: 1px solid var(--line-strong);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .index a {
+      text-decoration: none;
+      color: var(--ink);
+      padding: 16px 18px;
+      border-right: 1px solid var(--line);
+      position: relative;
+      transition: background .18s ease;
+      display: block;
+    }
+
+    .index a:last-child {
+      border-right: none;
+    }
+
+    .index a:hover {
+      background: var(--paper-2);
+    }
+
+    .index a::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--accent);
+    }
+
+    .index .num {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--ink-faint);
+      letter-spacing: 0.1em;
+    }
+
+    .index .nm {
+      font-weight: 600;
+      font-size: 16px;
+      margin-top: 4px;
+      line-height: 1.2;
+    }
+
+    .index .tp {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--ink-faint);
+      margin-top: 6px;
+    }
+
+    /* ---------- work sections ---------- */
+    section.work {
+      padding: 70px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .work-head {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+
+    .work-index {
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--ink-faint);
+      letter-spacing: 0.1em;
+    }
+
+    .seg-chip {
+      font-family: var(--mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 4px 10px;
+      border-radius: 999px;
+      color: #fff;
+      background: var(--accent);
+    }
+
+    h2.work-title {
+      font-size: clamp(28px, 4.5vw, 40px);
+      margin: 6px 0 4px;
+      letter-spacing: -0.015em;
+      font-weight: 600;
+    }
+
+    .credit {
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      color: var(--ink-faint);
+      margin: 0 0 18px;
+    }
+
+    .work-sub {
+      color: var(--ink-soft);
+      margin: 0 0 28px;
+      max-width: 62ch;
+    }
+
+    /* video embed */
+    .video-frame {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      background: #15130f;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid var(--line-strong);
+      box-shadow: 0 18px 40px -22px rgba(0, 0, 0, 0.5);
+    }
+
+    .video-frame iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* two-up video grid, for a format shown across two media */
+    .video-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .video-pair .pair-label {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink-faint);
+      margin: 0 0 8px;
+    }
+
+    .video-pair audio {
+      width: 100%;
+      margin-top: 12px;
+    }
+
+    @media (max-width: 720px) {
+      .video-pair {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ---------- "what it demonstrates" block ---------- */
+    .demo {
+      margin-top: 30px;
+      border: 1px solid rgba(154, 106, 29, 0.38);
+      background: rgba(154, 106, 29, 0.06);
+      border-radius: 6px;
+      padding: 20px 24px;
+    }
+
+    .demo .demo-tag {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--craft);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .demo p {
+      margin: 0;
+      font-size: 16.5px;
+      color: var(--ink-soft);
+    }
+
+    .demo strong {
+      color: var(--ink);
+    }
+
+    /* ---------- closing ---------- */
+    footer.close {
+      padding: 60px 0 90px;
+    }
+
+    footer.close .ct {
+      font-size: clamp(22px, 3.4vw, 30px);
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      margin: 0 0 14px;
+    }
+
+    footer.close p {
+      color: var(--ink-soft);
+      max-width: 60ch;
+      margin: 0 0 10px;
+    }
+
+    footer.close a.mail {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    .sig {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--ink-faint);
+      letter-spacing: 0.06em;
+      margin-top: 26px;
+    }
+
+    /* ---------- responsive ---------- */
+    @media (max-width: 720px) {
+      .index {
+        grid-template-columns: 1fr;
+      }
+
+      .index a {
+        border-right: none;
+        border-bottom: 1px solid var(--line);
+      }
+
+      body {
+        font-size: 17px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <!-- ============ MASTHEAD ============ -->
+    <header class="masthead">
+      <p class="kicker"><span class="dot"></span> Yuki Ip &nbsp;·&nbsp; Interview &amp; production-pipeline reel</p>
+      <h1 class="title">One format, built once, <em>held across the series.</em></h1>
+      <p class="lede">
+        Three formats, three ways of holding a series together — a broadcast template applied
+        across TV and podcast, an AI pipeline that locks consistency by design, and a documentary
+        structure repeated across subjects. Built on a broadcast background managing recurring
+        series end to end: pre-production, production and post.
+      </p>
+
+      <!-- note -->
+      <div class="gap-note">
+        <p class="gn-tag">◆ On these pieces</p>
+        <p>
+          Broadcast background on <strong>CNA</strong>, where I designed and managed workflows for
+          recurring series, not single episodes. Each note below names the craft detail relevant to
+          a <strong>multi-city interview series and a templated pairing format</strong>.
+        </p>
+      </div>
+
+      <!-- index -->
+      <nav class="index" aria-label="Reel index">
+        <a href="#quant">
+          <span class="num">01</span>
+          <div class="nm">The Quant Edge</div>
+          <div class="tp">TV series + podcast · Same format, two media</div>
+        </a>
+        <a href="#deadtell">
+          <span class="num">02</span>
+          <div class="nm">DeadTell TV</div>
+          <div class="tp">AI-agent pipeline · Format locked by design</div>
+        </a>
+        <a href="#chef">
+          <span class="num">03</span>
+          <div class="nm">Refugee Chef — Anh Lê</div>
+          <div class="tp">Documentary profile series · Same structure per subject</div>
+        </a>
+      </nav>
+    </header>
+
+    <!-- ============ 01 — THE QUANT EDGE ============ -->
+    <section class="work" id="quant">
+      <div class="work-head">
+        <span class="work-index">01</span>
+        <span class="seg-chip">Interview TV + podcast · CNA</span>
+      </div>
+      <h2 class="work-title">The Quant Edge</h2>
+      <p class="credit">Research · Script · Direction · Edit · Sound</p>
+      <p class="work-sub">
+        An interview-based TV series on quantitative trading, with a companion audio podcast
+        episode built from the same interview material — one visual and structural template
+        applied consistently across both the TV cut and the podcast format.
+      </p>
+
+      <div class="video-pair">
+        <div>
+          <p class="pair-label">TV episode</p>
+          <div class="video-frame">
+            <iframe loading="lazy" title="Demystifying The Quant Edge — TV"
+              src="https://play.gumlet.io/embed/6a4118193583eb1726206fdc" referrerpolicy="origin"
+              allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen;clipboard-write;"></iframe>
+          </div>
+        </div>
+        <div>
+          <p class="pair-label">Podcast companion — video cut</p>
+          <div class="video-frame">
+            <iframe loading="lazy" title="The Quant Edge — Podcast companion"
+              src="https://play.gumlet.io/embed/6a5ed92ceda64ba028aec844" referrerpolicy="origin"
+              allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen;clipboard-write;"></iframe>
+          </div>
+          <p class="pair-label" style="margin-top: 16px;">Podcast companion — audio</p>
+          <audio controls preload="none" src="media/quant-edge-podcast.mp3">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+      </div>
+
+      <div class="demo">
+        <p class="demo-tag">◆ Relevant to a multi-format series</p>
+        <p>
+          <strong>One format, held across two outputs.</strong> The same visual identity, pacing
+          and structure carries from the TV cut into the podcast companion piece — the same
+          discipline a developer interview needs to travel consistently from raw footage to a
+          finished, branded clip, city to city.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ 02 — DEADTELL TV ============ -->
+    <section class="work" id="deadtell">
+      <div class="work-head">
+        <span class="work-index">02</span>
+        <span class="seg-chip">AI production pipeline</span>
+      </div>
+      <h2 class="work-title">DeadTell TV</h2>
+      <p class="credit">Pipeline Design · Direction · Edit</p>
+      <p class="work-sub">
+        A synthetic content channel where the format is locked by the pipeline itself — AI agents
+        hold the structure consistent episode to episode, rather than relying on a human to match
+        it by hand each time.
+      </p>
+
+      <div class="video-frame" style="aspect-ratio: 120 / 67;">
+        <iframe loading="lazy" title="DeadTell TV"
+          src="https://play.gumlet.io/embed/6a40b91079d93c513c7755b6" referrerpolicy="origin"
+          allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen;clipboard-write;"></iframe>
+      </div>
+
+      <div class="demo">
+        <p class="demo-tag">◆ Relevant to the Broker Q&amp;A format</p>
+        <p>
+          <strong>Consistency locked in by the system, not policed by hand.</strong> A repeatable
+          structure with one variable slot swapped per output — the same logic that lets a single
+          developer answer be paired with many different broker questions without re-editing from
+          scratch each time.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ 03 — REFUGEE CHEF, ANH LE ============ -->
+    <section class="work" id="chef">
+      <div class="work-head">
+        <span class="work-index">03</span>
+        <span class="seg-chip">Documentary profile · CNA</span>
+      </div>
+      <h2 class="work-title">Refugee Chef — Anh Lê</h2>
+      <p class="credit">Post Direction · Edit · Sound &nbsp;|&nbsp; Gold World Medal, New York Festivals (series)</p>
+      <p class="work-sub">
+        A Vietnamese-Danish restaurateur's story, cut from sit-down interview, observational
+        kitchen footage and archival family material — one documentary profile format, interview
+        based, applied consistently across every subject in the series.
+      </p>
+
+      <div class="video-frame">
+        <iframe loading="lazy" title="Refugee Chef — Anh Lê"
+          src="https://play.gumlet.io/embed/6a4281d479d93c513c9e8fad" referrerpolicy="origin"
+          allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen;clipboard-write;"></iframe>
+      </div>
+
+      <div class="demo">
+        <p class="demo-tag">◆ Relevant to a multi-city interview series</p>
+        <p>
+          <strong>Multi-source consistency as the core craft.</strong> Present-day footage,
+          archival stills and sit-down interview audio are unified into one visual identity per
+          subject — the same discipline needed when raw footage arrives from different local
+          crews in different cities and still has to read as <strong>one series, one look</strong>.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ CLOSE ============ -->
+    <footer class="close">
+      <p class="ct">The through-line</p>
+      <p>
+        A format built once and held steady across every episode, city and subject — the same
+        discipline this brief is asking for, built on a broadcast background managing recurring
+        series from pre-production through post.
+      </p>
+      <p>
+        <a class="mail" href="https://www.upwork.com/freelancers/~010414b5da3ca038af" target="_blank"
+          rel="noopener">View my Upwork profile</a>
+      </p>
+      <p class="sig">Yuki Ip · Producer / Editor</p>
+    </footer>
+
+  </div>
+</body>
+
+</html>
